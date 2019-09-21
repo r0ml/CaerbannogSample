@@ -4,25 +4,7 @@ import Caerbannog
 
 extension AppDelegate {
   public func runAsciify() {
-    let sys = Python.sys
-    let bb = Bundle.main.resourceURL!
-    let bb1 = bb.appendingPathComponent("venv").appendingPathComponent("lib").appendingPathComponent("python3.7").appendingPathComponent("site-packages")
-    try! sys.path.insert(0, bb1.path)
-    
-    // need to do  PyImport_ImportModuleEx
-    /*    let d1 = PyDict_New()!
-     let d2 = PyDict_New()!
-     let d3 = Dictionary<String,PythonObject>(PythonObject(retaining: d1))!
-     let d5 = Dictionary<String,PythonObject>(PythonObject(retaining: d2))!
-     
-     let d6 = PyList_New(1)
-     let d7 : PythonObject = "*".pythonObject
-     PyList_SetItem(d6, 0, d7.retained() )
-     let mm = PyImport_ImportModuleLevel("asciify", d1, d2, d6, 0)
-     
-     let d4 = d3["runner"]!
-     */
-    
+
     let window = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
       styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -31,10 +13,6 @@ extension AppDelegate {
     window.setFrameAutosaveName("Asciify Window")
     window.isReleasedWhenClosed = false
     window.contentView = NSHostingView(rootView: AsciifyView())
-    
-    //    window.registerForDraggedTypes([NSPasteboard.PasteboardType.png, .tiff])
-    //    window.contentView?.registerForDraggedTypes([kUTTypeImage as String, kUTTypeJPEG as String, kUTTypePNG as String])
-    
     window.makeKeyAndOrderFront(nil)
   }
 }
@@ -49,14 +27,18 @@ struct AsciifyView : View {
     VStack {
       Text("Drop an Image on me").frame(maxWidth: .infinity, maxHeight: .infinity)
         .onDrop(of: [NSPasteboard.PasteboardType.fileURL.rawValue], delegate: self  )
+        .background(Color.gray)
       HStack {
         if visible {
           Image(nsImage: img!)
             .resizable()
             .aspectRatio(contentMode: .fit)
-          Text(asciid!).font(Font.custom("Courier", size: 15))
+          ScrollView(.vertical, showsIndicators: true) {
+            Text(asciid ?? "asciify failed").font(Font.custom("Courier", size: 15)).fixedSize(horizontal: false, vertical: true ).frame(alignment: .leading)
+
+            }.layoutPriority(10).fixedSize(horizontal: false, vertical: true )
         }
-      }.frame(width: nil, height: 400, alignment: .center)
+      }.frame(minHeight: 400, alignment: .center).layoutPriority(10)// .fixedSize(horizontal: false, vertical: true )
     }
   }
 }
@@ -79,8 +61,11 @@ extension AsciifyView : DropDelegate {
         let f = URL(string: ff),
         let i = NSImage(contentsOf: f) {
         self.img = i
+      
+          // animated GIF causes error to be thrown here
         let j = try! Python.PIL.Image.open(f.path)
-        let aa = try! Python.asciify.do(j)
+        let k = try! j.resize([150,75].pythonObject, Python.PIL.Image.ANTIALIAS)
+        let aa = try! Python.asciify.do(k)
         self.asciid = String(aa)
         self.visible = true
       }
@@ -88,6 +73,5 @@ extension AsciifyView : DropDelegate {
     }
     return true
   }
-  
 }
 

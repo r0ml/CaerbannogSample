@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14865.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -10,11 +10,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="CaerBannogSample" id="1Xt-HY-uBw">
+                            <menuItem title="CaerbannogSample" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="CaerBannogSample" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="CaerbannogSample" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About CaerBannogSample" id="5kV-Vb-QxS">
+                                        <menuItem title="About CaerbannogSample" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -28,7 +28,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide CaerBannogSample" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide CaerbannogSample" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -46,7 +46,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit CaerBannogSample" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit CaerbannogSample" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -332,28 +332,6 @@
                                                     </menuItem>
                                                 </items>
                                             </menu>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Run" id="89R-PX-WsK">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Run" id="FTj-rE-8qW">
-                                    <items>
-                                        <menuItem title="Google Images Downloader" id="IqJ-dI-0Zt">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="runGoogleImagesDownload:" target="Ady-hI-5gd" id="DvU-S5-d2t"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Asciify" id="WN2-sA-rdp">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="runAsciify:" target="Ady-hI-5gd" id="ncH-oK-fzN"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Item 3" id="4Vt-q0-zEn">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -681,7 +659,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="CaerBannogSample Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="CaerbannogSample Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>

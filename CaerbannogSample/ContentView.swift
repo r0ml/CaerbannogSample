@@ -2,16 +2,32 @@
 import SwiftUI
 
 struct ContentView: View {
+  let ad = AppDelegate.only
+   
     var body: some View {
-      VStack() {
-        Button("Run Google Images Downloads") { AppDelegate.only.runGoogleImagesDownload() }
-        Button("Run Asciify demo") { AppDelegate.only.runAsciify() }
-        Button("Run NumpyMatplotlib demo") { AppDelegate.only.runNumpyMatplotlibDemo() }
-        Button("Run Dominate demo") { AppDelegate.only.runDominateDemo() }
-        Button("Run Boto demo") { AppDelegate.only.runBotoDemo() }
-        Button("Run Numpy demo") { AppDelegate.only.runNumpyDemo() }
-      }.frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
+          VStack() {
+            Text("Check out the source code to see how it works!").fixedSize(horizontal: false, vertical: false ).frame(alignment: .leading).layoutPriority(10)
+          Buttonier(label: "Run Google Images Downloads", action: ad.runGoogleImagesDownload)
+          Buttonier(label: "Run Asciify demo", action: ad.runAsciify)
+          Buttonier(label: "Run NumpyMatplotlib", action: ad.runNumpyMatplotlibDemo)
+          Buttonier(label: "Run Dominate demo", action: ad.runDominateDemo )
+          Buttonier(label: "Run Boto demo", action: ad.runBotoDemo )
+          Buttonier(label: "Run Numpy demo", action: ad.runNumpyDemo)
+          }.frame(minWidth: 250, minHeight: 200).padding(.horizontal, 40).padding(.vertical, 20)
+            .fixedSize(horizontal: false, vertical: false)
+  }
+}
+
+// I needed this in order to make all the buttons the same width in the VStack
+struct Buttonier : View {
+  var label : String
+  var action : () -> ()
+  
+  var body : some View {
+    GeometryReader() { gg in Button(action: self.action) {
+      Text(self.label).frame(minWidth: gg.size.width, alignment: .leading)
+    } }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {

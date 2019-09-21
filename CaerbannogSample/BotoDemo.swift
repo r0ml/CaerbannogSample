@@ -4,8 +4,6 @@ import Caerbannog
 
 extension AppDelegate {
   public func runBotoDemo() {
-
-    
     let window = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
       styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -14,14 +12,7 @@ extension AppDelegate {
     window.setFrameAutosaveName("Boto Demo")
     window.isReleasedWhenClosed = false
     window.contentView = NSHostingView(rootView: BotoView())
-    
-    //    window.registerForDraggedTypes([NSPasteboard.PasteboardType.png, .tiff])
-    //    window.contentView?.registerForDraggedTypes([kUTTypeImage as String, kUTTypeJPEG as String, kUTTypePNG as String])
-    
     window.makeKeyAndOrderFront(nil)
-    
-
-    
   }
 }
 
@@ -34,34 +25,16 @@ struct BotoView : View {
     VStack() {
       TextField("Access Key", text: $accessKey)
       TextField("Secret Key", text: $secretKey)
+      Text("This demo will generate a list of your S3 buckets.  You need to provide your AWS access and secret key").lineLimit(3).multilineTextAlignment(.leading).padding().fixedSize(horizontal: false, vertical: true)
       Button("Run Boto S3") { self.result = self.runBotoDemo().joined(separator: "\n") }
-      TextField("", text: $result).lineLimit(60)
+      ScrollView(.vertical, showsIndicators: true) {
+        Text(result).fixedSize(horizontal: true, vertical: true ).frame(alignment: .leading).padding()
+      }.frame(maxWidth:.infinity, alignment: .leading).background(Color(NSColor.darkGray)).padding()
     }
   }
   
-  
   func runBotoDemo() -> [String] {
-        let sys = Python.sys
-        let bb = Bundle.main.resourceURL!
-        let bb1 = bb.appendingPathComponent("venv").appendingPathComponent("lib").appendingPathComponent("python3.7").appendingPathComponent("site-packages")
-        try! sys.path.insert(0, bb1.path)
-        
-        // need to do  PyImport_ImportModuleEx
-        /*    let d1 = PyDict_New()!
-         let d2 = PyDict_New()!
-         let d3 = Dictionary<String,PythonObject>(PythonObject(retaining: d1))!
-         let d5 = Dictionary<String,PythonObject>(PythonObject(retaining: d2))!
-         
-         let d6 = PyList_New(1)
-         let d7 : PythonObject = "*".pythonObject
-         PyList_SetItem(d6, 0, d7.retained() )
-         let mm = PyImport_ImportModuleLevel("asciify", d1, d2, d6, 0)
-         
-         let d4 = d3["runner"]!
-         */
-        
-        
-        let str = """
+    let str = """
 import boto3
 
     ## Or via the Session
@@ -77,26 +50,22 @@ response = s3.list_buckets()
 
     # Output the bucket names
 result = []
+
 for bucket in response['Buckets']:
     result.append(bucket["Name"])
 
 """
-        
-        let z = str.cString(using: .utf8)!
-        
-        let globs = PyModule_GetDict( Python.__main__.retained() )
-    //    let globs = try! Python.globals()
-    //    let locs = try! Python.locals()
-    PyDict_SetItem(globs, "ACCESS_KEY".pythonObject.retained(), self.accessKey.pythonObject.retained())
-    PyDict_SetItem(globs, "SECRET_KEY".pythonObject.retained(), self.secretKey.pythonObject.retained())
     
+    // Sets the global variables (in __main__)
+    Python.ACCESS_KEY = self.accessKey
+    Python.SECRET_KEY = self.secretKey
     
-        let zz = PyRun_StringFlags(z, Py_file_input, globs, globs, nil)
-        
-        let gd = Dictionary<String,PythonObject>(PythonObject(retaining: globs!))!
-
-        let hh = gd["result"]!
-        return  try! [String](hh)!
+    // Evaluates the program in str and returns the named global variable(s)
+    if let zz = Python.run(str, returning: "result") {
+      return [String](zz)!
+    } else {
+      return ["boto request failed"]
+    }
     
   }
 }
@@ -106,7 +75,3 @@ struct Boto_Previews: PreviewProvider {
     BotoView()
   }
 }
-
-
-
-
