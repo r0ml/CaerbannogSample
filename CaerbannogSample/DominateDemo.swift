@@ -1,6 +1,7 @@
 
 import SwiftUI
 import Caerbannog
+import WebKit
 
 extension AppDelegate {
   public func runDominateDemo() {
@@ -48,15 +49,59 @@ struct DominateView : View {
   @State var asciid : String?
   @State var visible : Bool = false
   
-  var html : String
+  @State var html : String
   
   var body : some View {
-    Text(html).lineLimit(60)
+    WebKit(html: self.html)
+/*    VStack() {
+      ScrollView() {
+        TextField("clem", text: $html).lineLimit(60)
+      }
+    }
+ */
   }
+}
+
+struct WebKit : NSViewRepresentable {
+  var html : String
+  var wv = WKWebView()
+  var tt = TT()
+  
+//  func makeCoordinator() -> () {
+//
+//  }
+  
+  func makeNSView(context: Context) -> WKWebView {
+    wv.loadHTMLString("Hello?", baseURL: nil)
+    // wv.uiDelegate = tt
+    
+    wv.autoresizingMask = [ .width, .height]
+      //    wv.webPlugInStart()
+    return wv
+  }
+  
+  func updateNSView(_ nsView: WKWebView, context: Context) {
+    print(html)
+    nsView.loadHTMLString(html, baseURL: nil)
+  //  nsView.viewWillDraw()
+  //  nsView.superview?.needsLayout = true
+  //  nsView.superview?.layoutSubtreeIfNeeded()
+   // let zz = nsView.superview!.bounds.size
+   // nsView.superview?.setFrameSize(CGSize(width: zz.width+1, height: zz.height+1))
+    print(nsView.isLoading)
+   // nsView.window?.display()
+  }
+  
+  // typealias NSViewType = WKWebView
+  
+}
+
+class TT : NSObject, WKUIDelegate {
+  
 }
 
 struct Dominate_Previews: PreviewProvider {
   static var previews: some View {
-    DominateView(html: "<h1>this is a test</h1>")
+    DominateView(html: "<h1 align=center>this is a test</h1><hr/>")
   }
 }

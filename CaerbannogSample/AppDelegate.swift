@@ -7,7 +7,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   static var only : AppDelegate { get { return NSApp.delegate as! AppDelegate } }
   
+  func applicationWillFinishLaunching(_ notification: Notification) {
+    Python.setup()
+    
+    swiftModule.addMethod("alert", swiftModuleAlert)
+  }
+  
   func applicationDidFinishLaunching(_ aNotification: Notification) {
+    Python.start()
+    
     let window = NSWindow(
         contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],

@@ -63,11 +63,17 @@ extension AsciifyView : DropDelegate {
         self.img = i
       
           // animated GIF causes error to be thrown here
-        let j = try! Python.PIL.Image.open(f.path)
-        let k = try! j.resize([150,75].pythonObject, Python.PIL.Image.ANTIALIAS)
-        let aa = try! Python.asciify.do(k)
-        self.asciid = String(aa)
-        self.visible = true
+        if let j = try? Python.PIL.Image.open(f.path),
+          let k = try? j.resize([150,75].pythonObject, Python.PIL.Image.ANTIALIAS),
+          let aa = try? Python.asciify.do(k) {
+          self.asciid = String(aa)
+          self.visible = true
+        } else {
+          if PyErr_Occurred() != nil {
+            PyErr_Print()
+            PyErr_Clear()
+          }
+        }
       }
       
     }

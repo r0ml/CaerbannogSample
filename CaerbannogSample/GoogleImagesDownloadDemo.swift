@@ -5,11 +5,6 @@ import Caerbannog
 extension AppDelegate {
   
   public func runGoogleImagesDownload() {
-    // the right way to handle this is to create a function that uses certifi to generate
-    // a usable https_context.  Meanwhilst, this hack is good enough for a demo
-    Python.ssl._create_default_https_context = Python.ssl._create_unverified_context
-    
-    
     let window = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
       styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],

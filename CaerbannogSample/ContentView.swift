@@ -13,6 +13,7 @@ struct ContentView: View {
           Buttonier(label: "Run Dominate demo", action: ad.runDominateDemo )
           Buttonier(label: "Run Boto demo", action: ad.runBotoDemo )
           Buttonier(label: "Run Numpy demo", action: ad.runNumpyDemo)
+            Buttonier(label: "Run Module demo", action: ad.runModuleDemo)
           }.frame(minWidth: 250, minHeight: 200).padding(.horizontal, 40).padding(.vertical, 20)
             .fixedSize(horizontal: false, vertical: false)
   }
