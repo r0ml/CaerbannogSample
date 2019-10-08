@@ -19,8 +19,8 @@
 		E73306F8231B1200008A2E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73306F7231B1200008A2E69 /* Assets.xcassets */; };
 		E73306FB231B1200008A2E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73306FA231B1200008A2E69 /* Preview Assets.xcassets */; };
 		E73306FE231B1200008A2E69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73306FC231B1200008A2E69 /* Main.storyboard */; };
+		E73F6EB5234C52AE00496361 /* Caerbannog in Frameworks */ = {isa = PBXBuildFile; productRef = E73F6EB4234C52AE00496361 /* Caerbannog */; };
 		E7BCFB6E233ABB5400C5489E /* ModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCFB6D233ABB5400C5489E /* ModuleDemo.swift */; };
-		E7BCFB71233C842800C5489E /* Caerbannog in Frameworks */ = {isa = PBXBuildFile; productRef = E7BCFB70233C842800C5489E /* Caerbannog */; };
 		E7C275CD232BF87900208F12 /* Python3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E733070A231B157A008A2E69 /* Python3.framework */; };
 		E7C275CE232BF87900208F12 /* Python3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E733070A231B157A008A2E69 /* Python3.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E7C275D1232BF9AF00208F12 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = E7C275D0232BF9AF00208F12 /* README.txt */; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7BCFB71233C842800C5489E /* Caerbannog in Frameworks */,
+				E73F6EB5234C52AE00496361 /* Caerbannog in Frameworks */,
 				E7C275CD232BF87900208F12 /* Python3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,7 +160,7 @@
 			);
 			name = CaerbannogSample;
 			packageProductDependencies = (
-				E7BCFB70233C842800C5489E /* Caerbannog */,
+				E73F6EB4234C52AE00496361 /* Caerbannog */,
 			);
 			productName = CaerBannogSample;
 			productReference = E73306F0231B11FF008A2E69 /* CaerbannogSample.app */;
@@ -173,7 +173,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = Semaseology;
 				TargetAttributes = {
 					E73306EF231B11FF008A2E69 = {
@@ -191,7 +191,7 @@
 			);
 			mainGroup = E73306E7231B11FF008A2E69;
 			packageReferences = (
-				E7BCFB6F233C842800C5489E /* XCRemoteSwiftPackageReference "Caerbannog" */,
+				E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */,
 			);
 			productRefGroup = E73306F1231B11FF008A2E69 /* Products */;
 			projectDirPath = "";
@@ -365,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CaerbannogSample/CaerBannogSample.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CaerbannogSample/Preview Content\"";
@@ -389,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CaerbannogSample/CaerBannogSample.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CaerbannogSample/Preview Content\"";
@@ -432,7 +434,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E7BCFB6F233C842800C5489E /* XCRemoteSwiftPackageReference "Caerbannog" */ = {
+		E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:r0ml/Caerbannog.git";
 			requirement = {
@@ -443,9 +445,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E7BCFB70233C842800C5489E /* Caerbannog */ = {
+		E73F6EB4234C52AE00496361 /* Caerbannog */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E7BCFB6F233C842800C5489E /* XCRemoteSwiftPackageReference "Caerbannog" */;
+			package = E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */;
 			productName = Caerbannog;
 		};
 /* End XCSwiftPackageProductDependency section */
