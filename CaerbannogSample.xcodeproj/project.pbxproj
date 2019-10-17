@@ -13,13 +13,13 @@
 		E707930D23329CD600CBBAAD /* BotoDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707930C23329CD600CBBAAD /* BotoDemo.swift */; };
 		E707930F2332C3CF00CBBAAD /* NumpyDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707930E2332C3CF00CBBAAD /* NumpyDemo.swift */; };
 		E70793102334075400CBBAAD /* venv in Copy Venv */ = {isa = PBXBuildFile; fileRef = E733070F231B1ED1008A2E69 /* venv */; };
+		E709D333235810780003F85C /* Caerbannog in Frameworks */ = {isa = PBXBuildFile; productRef = E709D332235810780003F85C /* Caerbannog */; };
 		E72DEABF232DD92E000F658A /* AsciifyDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DEABE232DD92E000F658A /* AsciifyDemo.swift */; };
 		E73306F4231B11FF008A2E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73306F3231B11FF008A2E69 /* AppDelegate.swift */; };
 		E73306F6231B11FF008A2E69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73306F5231B11FF008A2E69 /* ContentView.swift */; };
 		E73306F8231B1200008A2E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73306F7231B1200008A2E69 /* Assets.xcassets */; };
 		E73306FB231B1200008A2E69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73306FA231B1200008A2E69 /* Preview Assets.xcassets */; };
 		E73306FE231B1200008A2E69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73306FC231B1200008A2E69 /* Main.storyboard */; };
-		E73F6EB5234C52AE00496361 /* Caerbannog in Frameworks */ = {isa = PBXBuildFile; productRef = E73F6EB4234C52AE00496361 /* Caerbannog */; };
 		E7BCFB6E233ABB5400C5489E /* ModuleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCFB6D233ABB5400C5489E /* ModuleDemo.swift */; };
 		E7C275CD232BF87900208F12 /* Python3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E733070A231B157A008A2E69 /* Python3.framework */; };
 		E7C275CE232BF87900208F12 /* Python3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E733070A231B157A008A2E69 /* Python3.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E73F6EB5234C52AE00496361 /* Caerbannog in Frameworks */,
+				E709D333235810780003F85C /* Caerbannog in Frameworks */,
 				E7C275CD232BF87900208F12 /* Python3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,7 +160,7 @@
 			);
 			name = CaerbannogSample;
 			packageProductDependencies = (
-				E73F6EB4234C52AE00496361 /* Caerbannog */,
+				E709D332235810780003F85C /* Caerbannog */,
 			);
 			productName = CaerBannogSample;
 			productReference = E73306F0231B11FF008A2E69 /* CaerbannogSample.app */;
@@ -191,7 +191,7 @@
 			);
 			mainGroup = E73306E7231B11FF008A2E69;
 			packageReferences = (
-				E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */,
+				E709D331235810780003F85C /* XCRemoteSwiftPackageReference "Caerbannog" */,
 			);
 			productRefGroup = E73306F1231B11FF008A2E69 /* Products */;
 			projectDirPath = "";
@@ -434,7 +434,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */ = {
+		E709D331235810780003F85C /* XCRemoteSwiftPackageReference "Caerbannog" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:r0ml/Caerbannog.git";
 			requirement = {
@@ -445,9 +445,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E73F6EB4234C52AE00496361 /* Caerbannog */ = {
+		E709D332235810780003F85C /* Caerbannog */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E73F6EB3234C52AE00496361 /* XCRemoteSwiftPackageReference "Caerbannog" */;
+			package = E709D331235810780003F85C /* XCRemoteSwiftPackageReference "Caerbannog" */;
 			productName = Caerbannog;
 		};
 /* End XCSwiftPackageProductDependency section */

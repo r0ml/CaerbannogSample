@@ -23,11 +23,12 @@ struct GoogleImagesView : View {
 
   var body : some View {
     VStack {
+      Text("Try 'orange'")
       TextField("keyword", text: $keyword, onCommit: {
         let aa = Python.google_images_download.google_images_download
         let b = try! aa.googleimagesdownload()
         let c = [ "keywords":self.keyword.pythonObject, "limit":3.pythonObject, "print_urls": true.pythonObject,
-                  "output_directory": "/tmp".pythonObject ] // , "print_paths" : true.pythonObject ]
+                  "output_directory": FileManager.default.temporaryDirectory.path.pythonObject ] // , "print_paths" : true.pythonObject ]
         let d = try! b.download(c)
         let jj = d[0]!
         let kk = jj[self.keyword]!
@@ -36,7 +37,7 @@ struct GoogleImagesView : View {
       })
     List {
       ForEach(imgs, id: \.hash ) { i in
-        Image(nsImage: i)
+        Image(nsImage: i).resizable().aspectRatio(contentMode: .fit)
       }
     }
   }

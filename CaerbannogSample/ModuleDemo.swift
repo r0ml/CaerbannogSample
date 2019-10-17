@@ -21,7 +21,7 @@ extension AppDelegate {
       backing: .buffered, defer: false)
     w.center()
     w.contentMinSize = CGSize(width: 480, height: 300)
-    w.setFrameAutosaveName("Akert Window")
+    w.setFrameAutosaveName("Alert Window")
     w.isReleasedWhenClosed = false
     w.contentView = NSHostingView(rootView: alview!)
     window = w
